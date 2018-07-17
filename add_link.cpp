@@ -1,8 +1,22 @@
-  struct ListNode {
-      int val;
-      ListNode *next;
-      ListNode(int x) : val(x), next(nullptr) {}
-  };
+// add_link.cpp
+//
+// Created by luoluorushi on 2018/07/17.
+// Copyright © 2018年 luoluorushi. All right reserved.
+
+
+static const auto __ = []() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  return nullptr;
+}();
+int main() {
+    return 0;
+}
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
+};
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -48,6 +62,3 @@ public:
     }
 };
 
-int main() {
-    return 0;
-}
