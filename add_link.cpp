@@ -7,17 +7,16 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         int up = 0;
-        ListNode* result_node;
-        ListNode* pre_node=result_node;
+        ListNode* head_node = new ListNode(0);
+        ListNode* pre_node=head_node;
         do {
             int val = l1->val + l2->val + up;
             int node_val = val % 10;
             up = val / 10;
-            ListNode* next_node = new ListNode(node_val);
-            pre_node->next = next_node;
-            pre_node = next_node;
             l1 = l1->next;
             l2 = l2->next;
+            pre_node->next = new ListNode(node_val);
+            pre_node = pre_node->next;
             if(l1 == nullptr || l2 == nullptr)
                 break;
         } while(true);
@@ -28,10 +27,9 @@ public:
                 int val = l2->val + up;
                 int node_val = val % 10;
                 up = val/10;
-                ListNode* next_node = new ListNode(node_val);
-                pre_node->next = next_node;
-                pre_node = next_node;
                 l2 = l2->next;
+                pre_node->next = new ListNode(node_val);
+                pre_node = pre_node->next;
                 if(l2 == nullptr)
                     break;
             } while(true);
@@ -41,20 +39,18 @@ public:
                 int val = l1->val + up;
                 int node_val = val % 10;
                 up = val/10;
-                ListNode* next_node = new ListNode(node_val);
-                pre_node->next = next_node;
-                pre_node = next_node;
                 l1 = l1->next;
+                pre_node->next = new ListNode(node_val);
+                pre_node = pre_node->next;
                 if(l1 == nullptr)
                     break;
             } while(true);
         }
          if(up != 0) {
-                ListNode* next_node = new ListNode(up);
-                pre_node->next = next_node;
+                pre_node->next = new ListNode(up);
         }
 
-        return result_node->next;
+        return head_node->next;
     }
 };
 
